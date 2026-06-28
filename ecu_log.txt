@@ -1,0 +1,6 @@
+=== LAN DO #0 ===
+Nhiet do : 40.2 C
+Ap suat  : Truoc Trai=32.5PSI  Truoc Phai=31.0PSI  Sau Trai=30.5PSI  Sau Phai=22.3PSI  
+Xang     : 100.0%
+Toc do   : Banh TT=78.5km/h  Banh TP=60.2km/h  Banh ST=79.1km/h  Banh SP=77.8km/h  
+

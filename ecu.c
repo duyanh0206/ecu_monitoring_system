@@ -19,8 +19,6 @@ const char* status_to_string(Status s) {
     return "Canh bao!!!";
   if (s == DANGER)
     return "Nguy hiem!!!";
-  
-  return "OK";
-      
-    
+
+  return "OK";   
 }

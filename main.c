@@ -1,8 +1,10 @@
+#include "menu.h"
 #include "sensor.h"
 
 int main() {
-  
-ECU_Data ecu;
+
+  ECU_Data ecu;
+  static int lan = 0;
   
     ecu.engine_temp = 105.0f;
 
@@ -26,22 +28,10 @@ ECU_Data ecu;
 
     ecu.door[0] = 0; 
     ecu.door[1] = 0;
-    ecu.door[2] = 1;    
+    ecu.door[2] = 1;
     ecu.door[3] = 0;
 
-    // check_engine_temp(&ecu.engine_temp); // kiem tra nhiet do dong co
-
-    // check_tire_psi(ecu.tire_psi, tire_names, 4);    // kiem tra ap suat lop cua 4 banh xe
-
-    // check_fuel_pct(&ecu.fuel_pct); // kiem tra phan tram nhien lieu
-
-    // check_abs(ecu.wheel_spd, wheel_names, 4); // kiem tra ABS
-
-    // check_seatbel(ecu.seatbel, seat_names, 5, ecu.engine_temp); // kiem tra day an toan
-    
-    check_door(ecu.door, door_names, 4, ecu.engine_temp); // kiem tra canh cua
-
-
+    display_sensor_menu(&ecu);
 
     return 0;
 }

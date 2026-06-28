@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "sensor.h"
 #include "config.h"
 
@@ -50,7 +51,6 @@ Status check_fuel_pct(float *fuel_pct) {
 
   for (i = 0; i < 10; i++) {
     bar[i] = (i < numr_bars) ?  '#' : '.';
-    
 
     if(*fuel_pct > FUEL_PCT_WARN)
       s = OK;
@@ -65,15 +65,19 @@ Status check_fuel_pct(float *fuel_pct) {
   return s;
 }
 
+float avg_speed(float *wheel_spd, int n){
+  float tong = 0.0f;
+  int i;
+
+  for (i = 0; i < NUM_WHEELS; i++) {
+    tong += wheel_spd[i];
+  }
+  return tong / NUM_WHEELS;
+}
+
 void check_abs(float *wheel_spd, const char **wheel_name, int n) {
   int i;
-  float tong = 0.0f, tb;
-
-  for (i = 0; i < n; i++) {
-    tong += *(wheel_spd + i);
-  }
-
-  tb = tong / n;
+  float tb = avg_speed(wheel_spd, n);
 
   printf(" %-10s %-12s  %s\n ", "Banh xe", "Toc do", "ABS Check");
   printf("%-10s %-12s  %s\n ", "-------", "--------", "----------");
@@ -139,6 +143,24 @@ void check_door(int *door, const char **door_name, int n, float tb) {
     }
   }
 }
+
+// xoa toan bo noi dung dang hien thi tren man hinh
+void clear_screen(void) {
+  #ifdef _WIN32 // Windows
+    system("cls"); 
+  #else //  Linux, macOS
+    system("clear");
+  #endif
+}
+
+// dung man hinh
+void pause_screen(void) {
+  printf("\n Nhan Enter de quay lai menu...");
+  while(getchar() != '\n');
+}
+
+
+
 
 
         

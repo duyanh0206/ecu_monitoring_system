@@ -1,3 +1,6 @@
+#ifndef ECU_H
+#define ECU_H
+
 #include "config.h"
 
 typedef enum {
@@ -5,7 +8,6 @@ typedef enum {
   WARN, // canh bao
   DANGER // nguy hiem
 } Status;
-
 
 typedef struct {
   float engine_temp; // nhiet do dong co (C)
@@ -24,5 +26,7 @@ extern const char *wheel_names[NUM_WHEELS]; // banh xe
 extern const char *seat_names[NUM_SEATS]; // cho ngoi
 
 extern const char *door_names[NUM_DOORS]; // canh cua
-                                          
-const char* status_to_string(Status status); // chuyen enum sang chuoi
+
+const char *status_to_string(Status status); // chuyen enum sang chuoi
+
+#endif

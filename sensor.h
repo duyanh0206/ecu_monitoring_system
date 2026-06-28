@@ -6,6 +6,8 @@ Status check_tire_psi(float *tire_psi, const char **tire_name, int n); // kiem t
 
 Status check_fuel_pct(float *fuel_pct); // kiem tra phan tram nhien lieu
 
+float avg_speed(float *wheel_spd, int n);
+
 void check_abs(float *wheel_spd, const char **wheel_name,
                int n); // kiem tra ABS
 
